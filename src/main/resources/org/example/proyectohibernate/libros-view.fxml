@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<StackPane xmlns="http://javafx.com/javafx/21"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="org.example.proyectohibernate.controller.LibroController"
+           prefWidth="900"
+           prefHeight="600"
+           style="-fx-background-color: #f0f0f0;">
+
+    <VBox spacing="12"
+          maxWidth="750"
+          prefHeight="480"
+          style="-fx-background-color: white;
+                 -fx-border-color: #cccccc;
+                 -fx-border-width: 1;">
+
+        <padding>
+            <Insets top="15" right="15" bottom="15" left="15"/>
+        </padding>
+
+        <Label text="Registro de Libros"
+               style="-fx-font-size: 18px;
+                      -fx-font-weight: bold;"/>
+
+        <!-- Formulario -->
+        <GridPane hgap="10" vgap="10">
+
+            <!-- Titulo -->
+            <Label text="Título:"
+                   GridPane.columnIndex="0"
+                   GridPane.rowIndex="0"/>
+
+            <TextField fx:id="txtTitulo"
+                       promptText="Título del libro"
+                       prefWidth="180"
+                       GridPane.columnIndex="1"
+                       GridPane.rowIndex="0"/>
+
+            <!-- Autor -->
+            <Label text="Autor:"
+                   GridPane.columnIndex="0"
+                   GridPane.rowIndex="1"/>
+
+            <TextField fx:id="txtAutor"
+                       promptText="Autor del libro"
+                       GridPane.columnIndex="1"
+                       GridPane.rowIndex="1"/>
+
+            <!-- Año -->
+            <Label text="Año:"
+                   GridPane.columnIndex="0"
+                   GridPane.rowIndex="2"/>
+
+            <TextField fx:id="txtAnio"
+                       promptText="Año de publicación"
+                       GridPane.columnIndex="1"
+                       GridPane.rowIndex="2"/>
+
+            <!-- Precio -->
+            <Label text="Precio:"
+                   GridPane.columnIndex="0"
+                   GridPane.rowIndex="3"/>
+
+            <TextField fx:id="txtPrecio"
+                       promptText="Precio del libro"
+                       GridPane.columnIndex="1"
+                       GridPane.rowIndex="3"/>
+
+        </GridPane>
+
+        <!-- Botones -->
+        <HBox spacing="10">
+
+            <Button fx:id="btnGuardar"
+                    text="Guardar libro"
+                    onAction="#guardarLibro"/>
+
+            <Button fx:id="btnCargar"
+                    text="Cargar libros"
+                    onAction="#cargarLibros"/>
+
+        </HBox>
+
+        <!-- Tabla de libros -->
+        <TableView fx:id="tablaLibros"
+                   VBox.vgrow="ALWAYS">
+
+            <columns>
+
+                <TableColumn fx:id="colId"
+                             text="ID"
+                             prefWidth="60"/>
+
+                <TableColumn fx:id="colTitulo"
+                             text="Título"
+                             prefWidth="200"/>
+
+                <TableColumn fx:id="colAutor"
+                             text="Autor"
+                             prefWidth="200"/>
+
+                <TableColumn fx:id="colAnio"
+                             text="Año"
+                             prefWidth="100"/>
+
+                <TableColumn fx:id="colPrecio"
+                             text="Precio"
+                             prefWidth="120"/>
+
+            </columns>
+
+        </TableView>
+
+    </VBox>
+
+</StackPane>
