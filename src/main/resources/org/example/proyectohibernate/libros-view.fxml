@@ -83,6 +83,17 @@
                     text="Cargar libros"
                     onAction="#cargarLibros"/>
 
+            <Button fx:id="btnModificar"
+                    text="Modificar libro"
+                    onAction="#modificarLibro"/>
+
+            <Button fx:id="btnEliminar"
+                    text="Eliminar libro"
+                    onAction="#eliminarLibro"/>
+
+            <Button text="Limpiar campos"
+                    onAction="#limpiarCampos"/>
+
         </HBox>
 
         <!-- Tabla de libros -->

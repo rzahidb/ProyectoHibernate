@@ -12,16 +12,16 @@ public class Libro {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "titulo", nullable = false)
+    @Column(name = "titulo", nullable = false, length = 150)
     private String titulo;
 
-    @Column(name = "autor", nullable = false)
+    @Column(name = "autor", nullable = false, length = 100)
     private String autor;
 
     @Column(name = "anio_publicacion", nullable = false)
     private Integer anioPublicacion;
 
-    @Column(name = "precio", nullable = false)
+    @Column(name = "precio", nullable = false, precision = 12, scale = 2)
     private BigDecimal precio;
 
     public Libro() {
