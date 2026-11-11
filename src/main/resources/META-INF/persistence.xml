@@ -8,9 +8,13 @@
 
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
+        <!-- Entidades del proyecto -->
         <class>org.example.proyectohibernate.model.Libro</class>
+        <class>org.example.proyectohibernate.model.Categoria</class>
 
         <properties>
+
+            <!-- Configuración de PostgreSQL -->
             <property name="jakarta.persistence.jdbc.driver"
                       value="org.postgresql.Driver"/>
 
@@ -20,14 +24,17 @@
             <property name="jakarta.persistence.jdbc.user"
                       value="postgres"/>
 
+            <!-- Validar las tablas existentes -->
             <property name="hibernate.hbm2ddl.auto"
                       value="validate"/>
 
+            <!-- Mostrar consultas SQL -->
             <property name="hibernate.show_sql"
                       value="true"/>
 
             <property name="hibernate.format_sql"
                       value="true"/>
+
         </properties>
 
     </persistence-unit>

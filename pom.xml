@@ -1,4 +1,3 @@
-
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -13,6 +12,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.release>21</maven.compiler.release>
         <junit.version>5.12.1</junit.version>
     </properties>
 
@@ -56,18 +56,42 @@
     </dependencies>
 
     <build>
+
+        <!-- Configuración de recursos -->
+        <resources>
+
+            <!-- Recursos normales, excepto META-NF -->
+            <resource>
+                <directory>src/main/resources</directory>
+                <excludes>
+                    <exclude>META-NF/**</exclude>
+                </excludes>
+            </resource>
+
+            <!-- Copiar persistence.xml a META-INF -->
+            <resource>
+                <directory>src/main/resources/META-INF</directory>
+                <targetPath>META-INF</targetPath>
+                <includes>
+                    <include>persistence.xml</include>
+                </includes>
+            </resource>
+
+        </resources>
+
         <plugins>
 
+            <!-- Compilador Java 21 -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.13.0</version>
                 <configuration>
-                    <source>21</source>
-                    <target>21</target>
+                    <release>21</release>
                 </configuration>
             </plugin>
 
+            <!-- JavaFX -->
             <plugin>
                 <groupId>org.openjfx</groupId>
                 <artifactId>javafx-maven-plugin</artifactId>

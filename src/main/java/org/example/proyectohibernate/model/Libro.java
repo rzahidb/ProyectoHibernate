@@ -21,25 +21,25 @@ public class Libro {
     @Column(name = "anio_publicacion", nullable = false)
     private Integer anioPublicacion;
 
-    @Column(name = "precio", nullable = false, precision = 12, scale = 2)
+    @Column(name = "precio", nullable = false,
+            precision = 12, scale = 2)
     private BigDecimal precio;
+
+    // Relación: muchos libros pertenecen a una categoría
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
+    @JoinColumn(name = "categoria_id", nullable = false)
+    private Categoria categoria;
 
     public Libro() {
     }
 
-    public Libro(Long id, BigDecimal precio, Integer anioPublicacion, String autor, String titulo) {
+    public Libro(Long id, BigDecimal precio,
+                 Integer anioPublicacion, String autor,
+                 String titulo) {
         this.id = id;
         this.precio = precio;
         this.anioPublicacion = anioPublicacion;
         this.autor = autor;
-        this.titulo = titulo;
-    }
-
-    public String getTitulo() {
-        return titulo;
-    }
-
-    public void setTitulo(String titulo) {
         this.titulo = titulo;
     }
 
@@ -51,12 +51,12 @@ public class Libro {
         this.id = id;
     }
 
-    public Integer getAnioPublicacion() {
-        return anioPublicacion;
+    public String getTitulo() {
+        return titulo;
     }
 
-    public void setAnioPublicacion(Integer anioPublicacion) {
-        this.anioPublicacion = anioPublicacion;
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
     }
 
     public String getAutor() {
@@ -67,11 +67,27 @@ public class Libro {
         this.autor = autor;
     }
 
+    public Integer getAnioPublicacion() {
+        return anioPublicacion;
+    }
+
+    public void setAnioPublicacion(Integer anioPublicacion) {
+        this.anioPublicacion = anioPublicacion;
+    }
+
     public BigDecimal getPrecio() {
         return precio;
     }
 
     public void setPrecio(BigDecimal precio) {
         this.precio = precio;
+    }
+
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
     }
 }
